@@ -29,8 +29,8 @@ const { testimonials, showBackground = true } = Astro.props;
             <div class="swiper-wrapper">
               {testimonials.reviews && [...testimonials.reviews, ...testimonials.reviews, ...testimonials.reviews].map(
                 (review: any) => (
-                  <div class="swiper-slide h-auto">
-                    <div class="bg-[#f5f4f1] border border-[rgba(35,35,35,0.08)] rounded-[24px] shadow-[0px_40px_80px_-20px_rgba(35,35,35,0.08)] p-[31px] flex flex-col justify-between transition-transform duration-300 w-full box-border h-full min-h-[337px]">
+                    <div class="swiper-slide h-auto testimonial-card-wrapper">
+                      <div class="bg-[#f5f4f1] border border-[rgba(35,35,35,0.08)] rounded-[24px] shadow-[0px_40px_80px_-20px_rgba(35,35,35,0.08)] p-[31px] flex flex-col justify-between transition-transform duration-300 w-full box-border h-full min-h-[337px]">
                       
                       <!-- Top Content -->
                       <div>
@@ -141,3 +141,13 @@ const { testimonials, showBackground = true } = Astro.props;
     }, 100);
   });
 </script>
+<style is:global>
+  .my-testimonial-swiper {
+    overflow: visible !important;
+  }
+  .testimonial-card-wrapper {
+    padding: 60px 40px !important;
+    margin: -60px -40px !important;
+    overflow: visible !important;
+  }
+</style>

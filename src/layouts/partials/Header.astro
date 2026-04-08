@@ -19,7 +19,8 @@ const { main }: { main: NavigationLink[] } = menu;
 const { navigation_button, settings } = config;
 const { pathname } = Astro.url;
 const isAbout = pathname.includes('/about');
-const headerBg = isAbout ? 'bg-[#ebe9e2]' : 'bg-[#f1eee6]';
+const isCareer = pathname.includes('/careers');
+const headerBg = (isAbout || isCareer) ? 'bg-[#ebe9e2]' : 'bg-[#f1eee6]';
 ---
 
 <header class={`header z-30 fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1320px] transition-all ${headerBg} border-b border-[rgba(50,27,21,0.1)] rounded-b-[16px] px-[32px] flex justify-center h-[88px] items-center`}>
