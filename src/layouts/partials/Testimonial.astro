@@ -4,7 +4,7 @@ import { markdownify } from "@/lib/utils/textConverter";
 const { testimonials, showBackground = true } = Astro.props;
 ---
 
-<section class={showBackground ? "section-bg w-[calc(100%-64px)] bg-[#ebe9e2] rounded-[24px] mx-auto overflow-hidden relative" : "section w-full bg-transparent mx-auto overflow-hidden relative"}>
+<section class={showBackground ? "section-bg w-[calc(100%-64px)] bg-[#ebe9e2] rounded-[24px] mx-auto overflow-visible relative" : "section w-full bg-transparent mx-auto overflow-visible relative"}>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <!-- Exact Figma Component Container -->

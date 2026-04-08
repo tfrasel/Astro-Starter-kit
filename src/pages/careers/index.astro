@@ -31,7 +31,9 @@ if (careersIndex.data.draft) {
   description={description}
   image={image}
 >
-  {hero && <CareerHero data={hero} />}
+  <div class="mx-auto w-[calc(100%-64px)] bg-[#ebe9e2] rounded-b-[24px]">
+    {hero && <CareerHero data={hero} />}
+  </div>
   {benefits && <CareerBenefits data={benefits} />}
   
   {open_positions && <AboutCareers data={open_positions} />}

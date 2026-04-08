@@ -4,11 +4,13 @@ import { markdownify } from "@/lib/utils/textConverter";
 const { scale_features } = Astro.props;
 ---
 
-<section class="section">
+<section class="section p-30">
   <div class="container relative">
     <div class="flex flex-col gap-[64px] items-center">
       <!-- Header -->
-      <div class="flex flex-col gap-[24px] items-center text-center max-w-[600px]">
+      <div
+        class="flex flex-col gap-[24px] items-center text-center max-w-[600px]"
+      >
         <h2
           set:html={markdownify(scale_features.title)}
           class="font-bold leading-[1.4] text-[#232323] text-[40px] md:text-[61px] tracking-[0.35px]"
@@ -25,18 +27,28 @@ const { scale_features } = Astro.props;
           scale_features.features.map((feature: any) => (
             <div class="bg-[#f5f4f1] border border-[rgba(35,35,35,0.2)] flex flex-col gap-[80px] md:gap-[160px] items-start p-[33px] rounded-[24px] shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.1),0px_4px_6px_-4px_rgba(0,0,0,0.1)] transition-transform hover:-translate-y-1 duration-300">
               <div class="flex h-[48px] w-[48px] items-center justify-center shrink-0 rounded-[8px] bg-[rgba(35,35,35,0.05)] border border-[rgba(35,35,35,0.1)]">
-                <svg class="h-[24px] w-[24px] text-[#232323]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                <svg
+                  class="h-[24px] w-[24px] text-[#232323]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
                 </svg>
               </div>
               <div class="flex flex-col gap-[16px] items-start w-full text-left">
-                <h3 
-                  class="text-[24px] font-bold leading-[32px] tracking-[0.07px] text-[#232323]" 
-                  set:html={markdownify(feature.title)} 
+                <h3
+                  class="text-[24px] font-bold leading-[32px] tracking-[0.07px] text-[#232323]"
+                  set:html={markdownify(feature.title)}
                 />
-                <p 
-                  class="text-[16px] font-normal leading-[26px] tracking-[-0.31px] text-[rgba(35,35,35,0.7)]" 
-                  set:html={markdownify(feature.content)} 
+                <p
+                  class="text-[16px] font-normal leading-[26px] tracking-[-0.31px] text-[rgba(35,35,35,0.7)]"
+                  set:html={markdownify(feature.content)}
                 />
               </div>
             </div>

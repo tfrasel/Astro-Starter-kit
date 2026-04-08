@@ -2,81 +2,146 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-[#232323] relative rounded-t-[24px] mx-auto w-[calc(100%-64px)] overflow-hidden flex flex-col items-center">
-  <div class="w-[1320px] max-w-full mx-auto relative flex flex-col items-center pt-[120px] px-6 xl:px-0">
+<footer
+  class="bg-[#232323] relative rounded-t-[24px] mx-auto w-[calc(100%-64px)] overflow-hidden flex flex-col items-center"
+>
+  <div
+    class="w-[1320px] max-w-full mx-auto relative flex flex-col items-center pt-[120px] px-6 xl:px-0"
+  >
     <div class="flex flex-col lg:flex-row items-start justify-between w-full">
-      
       <!-- Brand Section -->
-      <div class="flex flex-col gap-[16px] items-start w-full lg:w-[313px] mb-12 lg:mb-0">
-        <div class="flex gap-[8px] items-center text-[#f1eee6]">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.0002 22C11.7583 22 11.5165 21.9366 11.2989 21.8095L2.73031 16.8095C2.26871 16.5398 1.97754 16.0354 1.97754 15.5V5.5C1.97754 4.96464 2.26871 4.46016 2.73031 4.19047L11.2989 -0.809528C11.7335 -1.06349 12.2668 -1.06349 12.7015 -0.809528L21.27 4.19047C21.7316 4.46016 22.0228 4.96464 22.0228 5.5V15.5C22.0228 16.0354 21.7316 16.5398 21.27 16.8095L12.7015 21.8095C12.4839 21.9366 12.2421 22 12.0002 22ZM4.02281 6.68063V14.3194L12.0002 18.971L19.9775 14.3194V6.68063L12.0002 2.02899L4.02281 6.68063Z" fill="currentColor"/>
-            <path d="M12 11.5C11.7239 11.5 11.5 11.2761 11.5 11V2C11.5 1.72386 11.7239 1.5 12 1.5C12.2761 1.5 12.5 1.72386 12.5 2V11C12.5 11.2761 12.2761 11.5 12 11.5Z" fill="currentColor"/>
-            <path d="M12.0002 11.5002C11.8398 11.5002 11.6826 11.4191 11.5959 11.2691L4.09592 2.60882C3.95781 2.38531 4.02693 2.09139 4.25044 1.95328C4.47395 1.81517 4.76787 1.88429 4.90598 2.1078L12.406 10.7681C12.5441 10.9916 12.475 11.2856 12.2515 11.4237C12.1747 11.4746 12.0874 11.5002 12.0002 11.5002Z" fill="currentColor"/>
-            <path d="M12.0001 11.4988C11.9126 11.4988 11.8251 11.4731 11.7482 11.4219L4.24817 2.76166C4.02434 2.61244 3.96347 2.31754 4.11269 2.09371C4.26191 1.86988 4.55682 1.80901 4.78064 1.95823L12.2806 10.6185C12.5045 10.7677 12.5654 11.0626 12.4161 11.2864C12.33 11.4258 12.166 11.4988 12.0001 11.4988Z" fill="currentColor" transform="matrix(-1 0 0 1 24 0)"/>
-          </svg>
+      <div
+        class="flex flex-col gap-[16px] items-start w-full lg:w-[313px] mb-12 lg:mb-0"
+      >
+        <a href="/" class="flex gap-[8px] items-center text-[#f1eee6] hover:opacity-90 transition-opacity">
+          <div class="w-6 h-6 flex items-center justify-center">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
           <p class="font-['Inter'] font-semibold leading-[28px] text-[24px] tracking-[-0.4395px] whitespace-nowrap">
             Starter Kit
           </p>
-        </div>
-        <p class="font-['Inter'] font-normal leading-[26px] text-[16px] text-[#f1eee6]/70 tracking-[-0.1504px] w-full">
-          A minimalist starter template designed for developers who value clean aesthetics and rapid deployment.
+        </a>
+        <p
+          class="font-['Inter'] font-normal leading-[26px] text-[16px] text-[#f1eee6]/70 tracking-[-0.1504px] w-full"
+        >
+          A minimalist starter template designed for developers who value clean
+          aesthetics and rapid deployment.
         </p>
       </div>
 
       <!-- Links Grid -->
-      <div class="flex flex-wrap lg:flex-nowrap gap-x-12 gap-y-12 lg:gap-[120px] items-start w-full lg:w-auto">
+      <div
+        class="flex flex-wrap lg:flex-nowrap gap-x-12 gap-y-12 lg:gap-[120px] items-start w-full lg:w-auto"
+      >
         <div class="flex flex-col gap-[32px] items-start w-[83px]">
-          <p class="font-['Inter'] font-semibold leading-[24px] text-[#f1eee6] text-[20px] tracking-[-0.3125px]">
+          <p
+            class="font-['Inter'] font-semibold leading-[24px] text-[#f1eee6] text-[20px] tracking-[-0.3125px]"
+          >
             Pages
           </p>
-          <div class="flex flex-col font-['Inter'] font-medium gap-[16px] items-start leading-[20px] text-[16px] text-[#f1eee6]/60 tracking-[-0.1504px] w-full whitespace-nowrap">
-            <a href="/authors" class="hover:text-[#f1eee6] transition">Authors</a>
-            <a href="/categories" class="hover:text-[#f1eee6] transition">Categories</a>
+          <div
+            class="flex flex-col font-['Inter'] font-medium gap-[16px] items-start leading-[20px] text-[16px] text-[#f1eee6]/60 tracking-[-0.1504px] w-full whitespace-nowrap"
+          >
+            <a href="/authors" class="hover:text-[#f1eee6] transition"
+              >Authors</a
+            >
+            <a href="/categories" class="hover:text-[#f1eee6] transition"
+              >Categories</a
+            >
             <a href="/tags" class="hover:text-[#f1eee6] transition">Tags</a>
-            <a href="/careers" class="hover:text-[#f1eee6] transition">Careers</a>
+            <a href="/careers" class="hover:text-[#f1eee6] transition"
+              >Careers</a
+            >
             <a href="/faq" class="hover:text-[#f1eee6] transition">FAQ</a>
           </div>
         </div>
         <div class="flex flex-col gap-[32px] items-start whitespace-nowrap">
-          <p class="font-['Inter'] font-semibold leading-[24px] text-[#f1eee6] text-[20px] tracking-[-0.3125px]">
+          <p
+            class="font-['Inter'] font-semibold leading-[24px] text-[#f1eee6] text-[20px] tracking-[-0.3125px]"
+          >
             Product
           </p>
-          <div class="flex flex-col font-['Inter'] font-medium gap-[16px] items-start leading-[20px] text-[16px] text-[#f1eee6]/80 tracking-[-0.1504px] w-full">
+          <div
+            class="flex flex-col font-['Inter'] font-medium gap-[16px] items-start leading-[20px] text-[16px] text-[#f1eee6]/80 tracking-[-0.1504px] w-full"
+          >
             <a href="#" class="hover:text-[#f1eee6] transition">Features</a>
             <a href="#" class="hover:text-[#f1eee6] transition">Pricing</a>
             <a href="#" class="hover:text-[#f1eee6] transition">Guide</a>
           </div>
         </div>
         <div class="flex flex-col gap-[32px] items-start w-[127px]">
-          <p class="font-['Inter'] font-semibold leading-[24px] text-[#f1eee6] text-[20px] tracking-[-0.3125px]">
+          <p
+            class="font-['Inter'] font-semibold leading-[24px] text-[#f1eee6] text-[20px] tracking-[-0.3125px]"
+          >
             Legal
           </p>
-          <div class="flex flex-col font-['Inter'] font-medium gap-[16px] items-start leading-[20px] text-[16px] text-[#f1eee6]/80 tracking-[-0.1504px] w-full">
-            <a href="#" class="hover:text-[#f1eee6] transition">Privacy Policy</a>
-            <a href="#" class="hover:text-[#f1eee6] transition">Terms of Service</a>
+          <div
+            class="flex flex-col font-['Inter'] font-medium gap-[16px] items-start leading-[20px] text-[16px] text-[#f1eee6]/80 tracking-[-0.1504px] w-full"
+          >
+            <a href="#" class="hover:text-[#f1eee6] transition"
+              >Privacy Policy</a
+            >
+            <a href="#" class="hover:text-[#f1eee6] transition"
+              >Terms of Service</a
+            >
           </div>
         </div>
         <div class="flex flex-col gap-[32px] items-start w-[112px]">
-          <p class="font-['Inter'] font-semibold leading-[24px] text-[#f1eee6] text-[20px] tracking-[-0.3125px] whitespace-nowrap">
+          <p
+            class="font-['Inter'] font-semibold leading-[24px] text-[#f1eee6] text-[20px] tracking-[-0.3125px] whitespace-nowrap"
+          >
             Community
           </p>
           <div class="flex flex-col gap-[16px] items-start w-[82px]">
             <a href="#" class="flex gap-[8px] items-center w-full group">
-              <svg class="w-4 h-4 text-[#f1eee6]/80 group-hover:text-[#f1eee6] transition" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-              <span class="font-['Inter'] font-medium leading-[20px] text-[16px] text-[#f1eee6]/80 group-hover:text-[#f1eee6] transition tracking-[-0.1504px] whitespace-nowrap">
+              <svg
+                class="w-4 h-4 text-[#f1eee6]/80 group-hover:text-[#f1eee6] transition"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                ><path
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                ></path></svg
+              >
+              <span
+                class="font-['Inter'] font-medium leading-[20px] text-[16px] text-[#f1eee6]/80 group-hover:text-[#f1eee6] transition tracking-[-0.1504px] whitespace-nowrap"
+              >
                 GitHub
               </span>
             </a>
             <a href="#" class="flex gap-[8px] items-center w-full group">
-              <svg class="w-4 h-4 text-[#f1eee6]/80 group-hover:text-[#f1eee6] transition" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z" /></svg>
-              <span class="font-['Inter'] font-medium leading-[20px] text-[16px] text-[#f1eee6]/80 group-hover:text-[#f1eee6] transition tracking-[-0.1504px] whitespace-nowrap">
+              <svg
+                class="w-4 h-4 text-[#f1eee6]/80 group-hover:text-[#f1eee6] transition"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                ><path
+                  d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"
+                ></path></svg
+              >
+              <span
+                class="font-['Inter'] font-medium leading-[20px] text-[16px] text-[#f1eee6]/80 group-hover:text-[#f1eee6] transition tracking-[-0.1504px] whitespace-nowrap"
+              >
                 Discord
               </span>
             </a>
-            <a href="#" class="flex gap-[8px] items-center w-full group">
-              <svg class="w-4 h-4 text-[#f1eee6]/80 group-hover:text-[#f1eee6] transition" viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.77.34-1.6.58-2.46.68.89-.53 1.58-1.37 1.9-2.4-.84.5-1.78.86-2.78 1.06-.8-.85-1.92-1.38-3.17-1.38-2.38 0-4.32 1.94-4.32 4.32 0 .34.04.67.1.99C7.69 8.1 4.47 6.4 2.3 3.7c-.37.64-.59 1.38-.59 2.16 0 1.5.76 2.82 1.92 3.6-.7-.02-1.36-.21-1.94-.54v.05c0 2.08 1.48 3.81 3.44 4.2-.36.1-.74.15-1.13.15-.27 0-.54-.03-.8-.08.55 1.7 2.12 2.94 3.99 2.98-1.47 1.15-3.32 1.84-5.34 1.84-.35 0-.69-.02-1.03-.06 1.9 1.22 4.15 1.93 6.55 1.93 7.86 0 12.16-6.51 12.16-12.16 0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
-              <span class="font-['Inter'] font-medium leading-[20px] text-[16px] text-[#f1eee6]/80 group-hover:text-[#f1eee6] transition tracking-[-0.1504px] whitespace-nowrap">
+            <a
+              href="https://x.com/MdRasel121298"
+              class="flex gap-[8px] items-center w-full group"
+            >
+              <svg
+                class="w-4 h-4 text-[#f1eee6]/80 group-hover:text-[#f1eee6] transition"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                ><path
+                  d="M22.46 6c-.77.34-1.6.58-2.46.68.89-.53 1.58-1.37 1.9-2.4-.84.5-1.78.86-2.78 1.06-.8-.85-1.92-1.38-3.17-1.38-2.38 0-4.32 1.94-4.32 4.32 0 .34.04.67.1.99C7.69 8.1 4.47 6.4 2.3 3.7c-.37.64-.59 1.38-.59 2.16 0 1.5.76 2.82 1.92 3.6-.7-.02-1.36-.21-1.94-.54v.05c0 2.08 1.48 3.81 3.44 4.2-.36.1-.74.15-1.13.15-.27 0-.54-.03-.8-.08.55 1.7 2.12 2.94 3.99 2.98-1.47 1.15-3.32 1.84-5.34 1.84-.35 0-.69-.02-1.03-.06 1.9 1.22 4.15 1.93 6.55 1.93 7.86 0 12.16-6.51 12.16-12.16 0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"
+                ></path></svg
+              >
+              <span
+                class="font-['Inter'] font-medium leading-[20px] text-[16px] text-[#f1eee6]/80 group-hover:text-[#f1eee6] transition tracking-[-0.1504px] whitespace-nowrap"
+              >
                 Twitter
               </span>
             </a>
@@ -84,12 +149,14 @@ const currentYear = new Date().getFullYear();
         </div>
       </div>
     </div>
-    
+
     <!-- Divider -->
-    <div class="w-full h-[1px] bg-white/10 mt-[184px] mb-[32px]"></div>
-    
+    <div class="w-full h-[1px] bg-white/10 mt-[120px] mb-[32px]"></div>
+
     <!-- Copyright -->
-    <p class="font-['Inter'] font-normal leading-[20px] text-[16px] text-[#f1eee6]/60 tracking-[-0.1504px] whitespace-nowrap pb-[40px]">
+    <p
+      class="font-['Inter'] font-normal leading-[20px] text-[16px] text-[#f1eee6]/60 tracking-[-0.1504px] whitespace-nowrap pb-[40px]"
+    >
       © {currentYear} Starter Kit. All rights reserved.
     </p>
   </div>

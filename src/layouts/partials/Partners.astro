@@ -4,25 +4,38 @@ import { markdownify } from "@/lib/utils/textConverter";
 const { trusted_by } = Astro.props;
 ---
 
-<section class="section-bg">
-  <div class="container px-6 xl:px-0 mx-auto w-full xl:max-w-[1320px] flex flex-col items-center gap-[32px]">
-    <p class="font-semibold text-[14px] text-[rgba(35,35,35,0.8)] tracking-[2.65px] uppercase text-center leading-[20px]" set:html={markdownify(trusted_by.title)} />
-    <div class="flex flex-wrap justify-center items-center gap-[24px] md:gap-[64px] w-full">
-      {trusted_by.brands.map((brand: any) => {
-        const brandName = typeof brand === 'string' ? brand : brand.name;
-        const brandIcon = brand.icon;
-        
-        return (
-          <div class="flex items-center gap-[8px] opacity-50 hover:opacity-80 transition-opacity">
-            {brandIcon && (
-              <img src={brandIcon} alt={brandName} class="w-8 h-8 object-contain grayscale" />
-            )}
-            <span class="font-bold text-[20px] text-[#232323] tracking-[-0.45px] leading-[28px]">
-              {brandName}
-            </span>
-          </div>
-        );
-      })}
+<section class="section-bg pt-20">
+  <div
+    class="container px-6 xl:px-0 mx-auto w-full xl:max-w-[1320px] flex flex-col items-center gap-[32px]"
+  >
+    <p
+      class="font-semibold text-[14px] text-[rgba(35,35,35,0.8)] tracking-[2.65px] uppercase text-center leading-[20px]"
+      set:html={markdownify(trusted_by.title)}
+    />
+    <div
+      class="flex flex-wrap justify-center items-center gap-[24px] md:gap-[64px] w-full"
+    >
+      {
+        trusted_by.brands.map((brand: any) => {
+          const brandName = typeof brand === "string" ? brand : brand.name;
+          const brandIcon = brand.icon;
+
+          return (
+            <div class="flex items-center gap-[8px] opacity-50 hover:opacity-80 transition-opacity">
+              {brandIcon && (
+                <img
+                  src={brandIcon}
+                  alt={brandName}
+                  class="w-8 h-8 object-contain grayscale"
+                />
+              )}
+              <span class="font-bold text-[20px] text-[#232323] tracking-[-0.45px] leading-[28px]">
+                {brandName}
+              </span>
+            </div>
+          );
+        })
+      }
     </div>
   </div>
 </section>
