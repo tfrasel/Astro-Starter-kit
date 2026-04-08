@@ -4,11 +4,11 @@ import { markdownify } from "@/lib/utils/textConverter";
 const { testimonials, showBackground = true } = Astro.props;
 ---
 
-<section class={showBackground ? "section-bg w-[calc(100%-64px)] bg-[#ebe9e2] rounded-[24px] mx-auto overflow-visible relative" : "section w-full bg-transparent mx-auto overflow-visible relative"}>
+<section class={showBackground ? "section-bg w-[calc(100%-64px)] bg-[#ebe9e2] rounded-[24px] mx-auto relative" : "section w-full bg-transparent mx-auto relative"}>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  <!-- Exact Figma Component Container -->
-  <div class="container relative z-10 w-full px-0 md:px-4">
+  <!-- Masking Container (Constrained to 1320px) -->
+  <div class="container relative z-10 w-full overflow-hidden py-[100px] -my-[100px]">
     <div class="flex flex-col items-center relative w-full px-6 xl:px-0 mx-auto">
         
         <!-- Header -->
@@ -24,8 +24,8 @@ const { testimonials, showBackground = true } = Astro.props;
         </div>
 
         <!-- Slider Area (Natively Implemented Swiper) -->
-        <div class="w-full pb-[100px] overflow-visible">
-          <div class="swiper my-testimonial-swiper overflow-visible">
+        <div class="w-full pb-0">
+          <div class="swiper my-testimonial-swiper">
             <div class="swiper-wrapper">
               {testimonials.reviews && [...testimonials.reviews, ...testimonials.reviews, ...testimonials.reviews].map(
                 (review: any) => (
@@ -89,7 +89,7 @@ const { testimonials, showBackground = true } = Astro.props;
           </div>
 
           <!-- Custom Controls Static Flow -->
-          <div class="flex justify-center gap-[16px] mt-0 w-full pb-0 relative z-20">
+          <div class="flex justify-center gap-[16px] mt-[64px] w-full pb-0 relative z-20">
             <button class="testimonial-btn-prev w-[48px] h-[48px] bg-[#ebe9e2] border border-[rgba(35,35,35,0.2)] rounded-full flex items-center justify-center hover:bg-[rgba(35,35,35,0.05)] transition cursor-pointer z-10 shrink-0 select-none" aria-label="Previous">
               <svg class="w-[20px] h-[20px] text-[#232323] -scale-x-100 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -146,8 +146,8 @@ const { testimonials, showBackground = true } = Astro.props;
     overflow: visible !important;
   }
   .testimonial-card-wrapper {
-    padding: 60px 40px !important;
-    margin: -60px -40px !important;
-    overflow: visible !important;
+    padding: 60px 0 !important;
+    margin-top: -60px !important;
+    margin-bottom: -60px !important;
   }
 </style>
