@@ -24,7 +24,7 @@ const isContact = pathname.includes('/contact');
 const headerBg = (isAbout || isCareer || isContact) ? 'bg-[#ebe9e2]' : 'bg-[#f1eee6]';
 ---
 
-<header class={`header z-30 fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1320px] transition-all ${headerBg} border-b border-[rgba(50,27,21,0.1)] rounded-b-[16px] px-[32px] flex justify-center h-[88px] items-center`}>
+<header class={`header z-30 fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1320px] transition-all ${headerBg} border-b border-[rgba(50,27,21,0.1)] rounded-b-[16px] px-[32px] flex justify-center h-[88px] items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.03)]`}>
   <nav class="navbar w-full h-full flex items-center justify-between">
     <!-- logo -->
     <div class="order-0">
@@ -32,7 +32,7 @@ const headerBg = (isAbout || isCareer || isContact) ? 'bg-[#ebe9e2]' : 'bg-[#f1e
          <div class="w-6 h-6 flex items-center justify-center">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17L12 22L22 17" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12L12 17L22 12" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
          </div>
-         <span class="font-semibold text-[24px] tracking-[-0.44px] text-text-dark">Starter Kit</span>
+         <span class="font-semibold text-[24px] tracking-[-0.4395px] text-text-dark">Starter Kit</span>
       </a>
     </div>
     
