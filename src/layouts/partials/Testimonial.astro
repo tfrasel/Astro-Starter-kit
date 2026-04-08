@@ -1,0 +1,143 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+
+const { testimonials, showBackground = true } = Astro.props;
+---
+
+<section class={showBackground ? "section-bg w-[calc(100%-64px)] bg-[#ebe9e2] rounded-[24px] mx-auto overflow-hidden relative" : "section w-full bg-transparent mx-auto overflow-hidden relative"}>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Exact Figma Component Container -->
+  <div class="container relative z-10 w-full px-0 md:px-4">
+    <div class="flex flex-col items-center relative w-full px-6 xl:px-0 mx-auto">
+        
+        <!-- Header -->
+        <div class="flex flex-col gap-[24px] items-center text-center mb-[64px]">
+          <h2
+            set:html={markdownify(testimonials.title)}
+            class="font-bold leading-[1.4] text-[#232323] text-[40px] md:text-[61px] tracking-[0.35px] font-primary m-0 p-0"
+          />
+          <p
+            set:html={markdownify(testimonials.description)}
+            class="font-normal leading-[28px] text-[18px] md:text-[20px] text-[rgba(35,35,35,0.8)] tracking-[-0.45px] max-w-2xl m-0 p-0"
+          />
+        </div>
+
+        <!-- Slider Area (Natively Implemented Swiper) -->
+        <div class="w-full">
+          <div class="swiper my-testimonial-swiper overflow-visible">
+            <div class="swiper-wrapper">
+              {testimonials.reviews && [...testimonials.reviews, ...testimonials.reviews, ...testimonials.reviews].map(
+                (review: any) => (
+                  <div class="swiper-slide h-auto">
+                    <div class="bg-[#f5f4f1] border border-[rgba(35,35,35,0.08)] rounded-[24px] shadow-[0px_40px_80px_-20px_rgba(35,35,35,0.08)] p-[31px] flex flex-col justify-between transition-transform duration-300 w-full box-border h-full min-h-[337px]">
+                      
+                      <!-- Top Content -->
+                      <div>
+                        <!-- 5 Stars Icon Group -->
+                        <div class="flex gap-[8px] items-center mb-[24px]">
+                          {Array.from({ length: 5 }).map(() => (
+                            <div class="w-[20px] h-[20px] flex items-center justify-center shrink-0">
+                              <svg class="w-[20px] h-[20px] text-[#232323]" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                            </div>
+                          ))}
+                        </div>
+
+                        <p class="italic leading-[29.25px] text-[18px] text-[rgba(35,35,35,0.8)] tracking-[-0.44px] m-0 font-primary">
+                          "{review.content}"
+                        </p>
+                      </div>
+
+                      <!-- Footer Area -->
+                      <div class="mt-[24px]">
+                        <div class="w-full h-[1px] bg-[rgba(35,35,35,0.1)] mb-[16px]"></div>
+                        <div class="flex gap-[16px] items-center flex-row">
+                          {review.avatar ? (
+                             <div class="w-[48px] h-[48px] shrink-0 overflow-hidden rounded-full">
+                               <img
+                                 class="w-full h-full object-cover"
+                                 src={review.avatar}
+                                 alt={review.name}
+                               />
+                             </div>
+                          ) : (
+                            <div class="bg-[#232323] rounded-full shrink-0 w-[48px] h-[48px] flex items-center justify-center">
+                              <p class="font-bold leading-none text-[#ece5d8] text-[18px] tracking-[-0.44px] m-0 p-0 font-primary">
+                                {review.name.charAt(0)}
+                              </p>
+                            </div>
+                          )}
+
+                          <div class="flex flex-col items-start justify-center">
+                            <p class="font-bold leading-[24px] text-[#232323] text-[16px] tracking-[-0.31px] m-0 font-primary">
+                              {review.name}
+                            </p>
+                            <p class="font-normal leading-[20px] text-[14px] text-[rgba(35,35,35,0.6)] tracking-[-0.15px] m-0 font-primary">
+                              {review.role || review.designation}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+
+          <!-- Custom Controls Static Flow -->
+          <div class="flex justify-center gap-[16px] mt-[64px] w-full">
+            <button class="testimonial-btn-prev w-[48px] h-[48px] bg-[#ebe9e2] border border-[rgba(35,35,35,0.2)] rounded-full flex items-center justify-center hover:bg-[rgba(35,35,35,0.05)] transition cursor-pointer z-10 shrink-0 select-none" aria-label="Previous">
+              <svg class="w-[20px] h-[20px] text-[#232323] -scale-x-100 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+            <button class="testimonial-btn-next w-[48px] h-[48px] bg-[#232323] rounded-full flex items-center justify-center hover:opacity-80 transition cursor-pointer z-10 shrink-0 select-none" aria-label="Next">
+              <svg class="w-[20px] h-[20px] text-[#ece5d8] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- Client Script to bind Swiper -->
+<script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Basic timeout to ensure all layout mounts correctly
+    setTimeout(() => {
+      if (typeof Swiper !== 'undefined') {
+        new Swiper('.my-testimonial-swiper', {
+          slidesPerView: 1,
+          spaceBetween: 24,
+          loop: true,
+          autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+          },
+          navigation: {
+            nextEl: '.testimonial-btn-next',
+            prevEl: '.testimonial-btn-prev',
+          },
+          breakpoints: {
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+            992: {
+              slidesPerView: 3,
+              spaceBetween: 24,
+            },
+          }
+        });
+      }
+    }, 100);
+  });
+</script>

@@ -1,0 +1,32 @@
+---
+import config from "@/config/config.json";
+import Base from "@/layouts/Base.astro";
+import { getListPage } from "@/lib/contentParser.astro";
+import ContactHero from "@/partials/ContactHero.astro";
+import ContactForm from "@/partials/ContactForm.astro";
+
+import CallToAction from "@/partials/CallToAction.astro";
+
+const contactIndex = await getListPage("contact", "-index");
+const { contact_form_action }: { contact_form_action: string } = config.params;
+const { title, description, meta_title, image, cta } = contactIndex.data;
+
+if (contactIndex.data.draft) {
+  return Astro.redirect("/404");
+}
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <ContactHero data={contactIndex.data} />
+  
+  <div class="relative z-20 pb-[120px]">
+    <ContactForm action={contact_form_action} />
+  </div>
+
+  <CallToAction cta={cta} />
+</Base>

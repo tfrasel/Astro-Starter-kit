@@ -1,0 +1,46 @@
+---
+import Base from "@/layouts/Base.astro";
+import CareerHero from "@/partials/CareerHero.astro";
+import CareerBenefits from "@/partials/CareerBenefits.astro";
+import AboutCareers from "@/partials/AboutCareers.astro";
+import Testimonial from "@/partials/Testimonial.astro";
+import CallToAction from "@/partials/CallToAction.astro";
+import { getEntry } from "astro:content";
+
+const careersIndex = await getEntry("careers", "-index");
+const { 
+  title, 
+  description, 
+  meta_title, 
+  image, 
+  hero, 
+  benefits, 
+  open_positions, 
+  testimonials = { title: "", description: "", reviews: [] }, 
+  cta = { title: "", description: "", button: { label: "", link: "" } } 
+} = careersIndex.data;
+
+if (careersIndex.data.draft) {
+  return Astro.redirect("/404");
+}
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  {hero && <CareerHero data={hero} />}
+  {benefits && <CareerBenefits data={benefits} />}
+  
+  {open_positions && <AboutCareers data={open_positions} />}
+  
+  {testimonials?.reviews?.length > 0 && (
+    <div class="section-none">
+      <Testimonial testimonials={testimonials} showBackground={false} />
+    </div>
+  )}
+  
+  <CallToAction cta={cta} />
+</Base>

@@ -1,0 +1,41 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getListPage } from "@/lib/contentParser.astro";
+import AboutHero from "@/partials/AboutHero.astro";
+import Partners from "@/partials/Partners.astro";
+import AboutMission from "@/partials/AboutMission.astro";
+import AboutStats from "@/partials/AboutStats.astro";
+import AboutJourney from "@/partials/AboutJourney.astro";
+import AboutTeam from "@/partials/AboutTeam.astro";
+import AboutCareers from "@/partials/AboutCareers.astro";
+import CallToAction from "@/partials/CallToAction.astro";
+
+const aboutIndex = await getListPage("about", "-index");
+const { title, description, meta_title, image, hero, trusted_by, mission, stats, journey, team, open_positions, cta } = aboutIndex.data;
+
+if (aboutIndex.data.draft) {
+  return Astro.redirect("/404");
+}
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <AboutHero data={hero} />
+  {trusted_by && <Partners trusted_by={trusted_by} />}
+  <div class="section-none">
+    <AboutMission data={mission} />
+  </div>
+  <AboutStats data={stats} />
+  <div class="section-none">
+    <AboutJourney data={journey} />
+  </div>
+  <AboutTeam data={team} />
+  <AboutCareers data={open_positions} showViewAll={true} />
+  <div class="section-none">
+    <CallToAction cta={cta} />
+  </div>
+</Base>

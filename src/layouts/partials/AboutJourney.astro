@@ -1,0 +1,91 @@
+---
+const { data } = Astro.props;
+---
+
+<!-- Journey / Timeline Section -->
+<section class="section">
+  <div class="container px-6 xl:px-0 mx-auto w-full xl:max-w-[1320px] flex flex-col gap-[64px]">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col items-center text-center gap-[24px] whitespace-nowrap">
+      <h2 class="font-bold leading-[1.2] text-[#232323] text-[40px] md:text-[61px] tracking-[0.35px] font-primary m-0">
+        {data.title}
+      </h2>
+      <p class="font-normal leading-[28px] text-[18px] md:text-[20px] text-[rgba(35,35,35,0.8)] tracking-[-0.45px] m-0 font-primary" set:html={data.description} />
+    </div>
+
+    <!-- Timeline (Desktop: horizontal, Mobile: vertical) -->
+    <div class="relative w-full">
+      
+      <!-- Desktop Layout -->
+      <div class="hidden lg:block">
+        <!-- Year labels row -->
+        <div class="grid grid-cols-4 gap-[24px] mb-[40px]">
+          {data.roadmap.map((item: any) => (
+            <div>
+              <span class="font-semibold text-[31px] text-[#232323] font-primary leading-[38px]">
+                {item.year}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <!-- Timeline line with dots -->
+        <div class="relative w-full h-[40px] mb-[40px]">
+          <!-- Horizontal line -->
+          <div class="absolute top-[20px] left-[20px] right-[20px] h-[2px] bg-[rgba(35,35,35,0.15)]"></div>
+          <!-- Dots at each quarter -->
+          <div class="grid grid-cols-4 gap-[24px] absolute inset-0">
+            {data.roadmap.map((_: any) => (
+              <div class="flex items-center justify-start pl-[0px]">
+                <div class="w-[40px] h-[40px] rounded-full border-2 border-[#232323] bg-[#ece5d8] flex items-center justify-center shadow-[0px_4px_6px_0px_rgba(0,0,0,0.1),0px_2px_4px_0px_rgba(0,0,0,0.1)] shrink-0">
+                  <div class="w-3 h-3 rounded-full bg-[#232323]"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Cards row -->
+        <div class="grid grid-cols-4 gap-[24px]">
+          {data.roadmap.map((item: any) => (
+            <div class="bg-[#f5f4f1] border border-[rgba(35,35,35,0.2)] rounded-[16px] p-[24px] py-[32px] flex flex-col gap-[24px] shadow-[0px_8px_30px_0px_rgba(50,27,21,0.04)]">
+              <h3 class="font-bold text-[20px] text-[#232323] leading-[30px] font-primary m-0">
+                {item.title}
+              </h3>
+              <p class="font-normal text-[16px] text-[rgba(35,35,35,0.7)] leading-[26px] font-primary m-0">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Mobile Layout (vertical) -->
+      <div class="block lg:hidden relative">
+        <!-- Vertical line -->
+        <div class="absolute top-0 bottom-0 left-[20px] w-[2px] bg-[rgba(35,35,35,0.15)]"></div>
+        
+        <div class="flex flex-col gap-[48px] pl-[64px]">
+          {data.roadmap.map((item: any) => (
+            <div class="relative flex flex-col gap-[12px]">
+              <!-- Dot -->
+              <div class="absolute -left-[64px] top-[4px] w-[40px] h-[40px] rounded-full border-2 border-[#232323] bg-[#ece5d8] flex items-center justify-center shadow-[0px_4px_6px_0px_rgba(0,0,0,0.1)]">
+                <div class="w-3 h-3 rounded-full bg-[#232323]"></div>
+              </div>
+              
+              <span class="font-semibold text-[28px] text-[#232323] font-primary leading-none">
+                {item.year}
+              </span>
+              <div class="bg-[#f5f4f1] border border-[rgba(35,35,35,0.2)] rounded-[16px] p-[24px] flex flex-col gap-[12px]">
+                <h3 class="font-bold text-[20px] text-[#232323] font-primary m-0">{item.title}</h3>
+                <p class="font-normal text-[16px] text-[rgba(35,35,35,0.7)] leading-[26px] font-primary m-0">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

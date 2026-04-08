@@ -1,0 +1,96 @@
+---
+import Logo from "@/components/Logo.astro";
+import config from "@/config/config.json";
+import menu from "@/config/menu.json";
+
+export interface ChildNavigationLink {
+  name: string;
+  url: string;
+}
+
+export interface NavigationLink {
+  name: string;
+  url: string;
+  hasChildren?: boolean;
+  children?: ChildNavigationLink[];
+}
+
+const { main }: { main: NavigationLink[] } = menu;
+const { navigation_button, settings } = config;
+const { pathname } = Astro.url;
+const isAbout = pathname.includes('/about');
+const headerBg = isAbout ? 'bg-[#ebe9e2]' : 'bg-[#f1eee6]';
+---
+
+<header class={`header z-30 fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1320px] transition-all ${headerBg} border-b border-[rgba(50,27,21,0.1)] rounded-b-[16px] px-[32px] flex justify-center h-[88px] items-center`}>
+  <nav class="navbar w-full h-full flex items-center justify-between">
+    <!-- logo -->
+    <div class="order-0">
+      <a href="/" class="flex items-center gap-2 hover:opacity-90 transition-opacity">
+         <div class="w-6 h-6 flex items-center justify-center">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17L12 22L22 17" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12L12 17L22 12" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+         </div>
+         <span class="font-semibold text-[24px] tracking-[-0.44px] text-text-dark">Starter Kit</span>
+      </a>
+    </div>
+    
+    <!-- navbar toggler -->
+    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <label
+      for="nav-toggle"
+      class="order-3 cursor-pointer flex items-center lg:hidden text-text-dark lg:order-1"
+    >
+      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
+        <title>Menu Open</title>
+        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+      </svg>
+      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
+        <title>Menu Close</title>
+        <polygon
+          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+          transform="rotate(45 10 10)"></polygon>
+      </svg>
+    </label>
+    
+    <!-- /navbar toggler -->
+
+    <ul
+      id="nav-menu"
+      class="navbar-nav order-3 hidden w-full pb-6 lg:order-1 lg:flex lg:w-auto lg:gap-12 lg:pb-0 bg-transparent absolute top-full left-0 lg:static px-6 lg:px-0"
+    >
+      <li class="nav-item">
+        <a href="/about" class="nav-link font-medium leading-[20px] text-text-dark tracking-[-0.15px] hover:text-text-light transition text-[16px]">About</a>
+      </li>
+      <li class="nav-item">
+        <a href="/elements" class="nav-link font-medium leading-[20px] text-text-dark tracking-[-0.15px] hover:text-text-light transition text-[16px]">Elements</a>
+      </li>
+      <li class="nav-item">
+        <a href="/pricing" class="nav-link font-medium leading-[20px] text-text-dark tracking-[-0.15px] hover:text-text-light transition text-[16px]">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a href="/faq" class="nav-link font-medium leading-[20px] text-text-dark tracking-[-0.15px] hover:text-text-light transition text-[16px]">FAQ</a>
+      </li>
+      <li class="nav-item nav-dropdown group relative">
+        <span class="nav-link inline-flex items-center font-medium leading-[20px] text-text-dark tracking-[-0.15px] hover:text-text-light transition text-[16px] cursor-pointer">
+          Pages
+          <svg class="w-4 h-4 ml-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </span>
+        <ul class="nav-dropdown-list hidden group-hover:block lg:invisible lg:absolute lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 bg-white shadow-lg rounded-xl mt-2 p-2">
+          {menu.main.find(item => item.name === 'Pages')?.children?.map(child => (
+            <li class="nav-dropdown-item min-w-[200px]">
+               <a href={child.url} class="nav-dropdown-link block hover:bg-light rounded-lg p-2 text-sm">{child.name}</a>
+            </li>
+          ))}
+        </ul>
+      </li>
+    </ul>
+
+    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0 gap-4">
+      <a class="bg-primary text-[#ece5d8] rounded-full px-[20px] py-[10px] text-[16px] font-medium tracking-[-0.15px] leading-[20px] hover:bg-primary/90 transition shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)]" href="#">
+        Get Started
+      </a>
+    </div>
+  </nav>
+</header>

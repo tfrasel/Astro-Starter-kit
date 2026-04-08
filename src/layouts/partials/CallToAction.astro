@@ -1,0 +1,32 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+
+const { cta } = Astro.props;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="section-bg bg-[#e7e4dc] border border-[rgba(35,35,35,0.1)] rounded-[24px] shadow-[0px_25px_60px_-12px_rgba(0,0,0,0.16)] flex flex-col items-center text-center px-6 py-[120px]">
+        
+        <div class="flex flex-col items-center gap-[24px] max-w-[755px] mx-auto mb-[76px] relative">
+          <h2 class="font-semibold leading-[1.1] md:leading-[61px] text-[#232323] text-[40px] md:text-[61px] tracking-[-1.68px] font-primary m-0 p-0 text-center" set:html={markdownify(cta.title)} />
+          <p class="font-medium leading-[28px] text-[18px] md:text-[20px] text-[rgba(35,35,35,0.8)] tracking-[-0.45px] max-w-[621px] font-primary m-0 p-0 text-center" set:html={markdownify(cta.description || cta.content)} />
+        </div>
+        
+        {cta.button && cta.button.enable !== false && cta.button.link && (
+          <a href={cta.button.link} class="inline-flex gap-[8px] items-center bg-[#232323] rounded-[80px] px-[36px] py-[18px] hover:opacity-90 transition-opacity whitespace-nowrap cursor-pointer group">
+            <span class="font-medium leading-[24px] text-[#ece5d8] text-[16px] tracking-[-0.31px] font-primary m-0">
+              {cta.button.label}
+            </span>
+            <div class="relative shrink-0 flex items-center justify-center w-[16px] h-[16px] transition-transform duration-300 group-hover:translate-x-1">
+              <svg class="w-full h-full text-[#ece5d8]" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3.333 8h9.334M9.333 4.667l3.334 3.333-3.334 3.334" />
+              </svg>
+            </div>
+          </a>
+        )}
+
+      </div>
+    </div>
+  </div>
+</section>

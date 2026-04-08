@@ -1,0 +1,54 @@
+---
+const { data } = Astro.props;
+---
+
+<!-- Hero Section: centered content over bg band, then full-width image -->
+<section class="relative w-full z-10 top-0">
+  <!-- Beige rounded-bottom band -->
+  <div class="mx-auto w-[calc(100%-64px)] bg-[#ebe9e2] rounded-b-[16px] pt-[228px] pb-0 relative top-0 flex flex-col items-center">
+    <div class="w-full max-w-[1320px] text-center px-6 xl:px-0 relative z-20 flex flex-col items-center">
+      
+      <!-- Badge pill -->
+      <div class="inline-flex items-center gap-2 rounded-full border border-[rgba(35,35,35,0.2)] bg-[#f7f5f0] px-[16px] py-[8px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] mb-8">
+        <span class="w-[8px] h-[8px] rounded-full bg-[#232323] border-[3px] border-[#e7e3de]"></span>
+        <span class="text-[14px] font-semibold text-[#232323] tracking-[-0.15px] leading-[20px]">About Us</span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="font-bold leading-[1.2] text-[#232323] text-[48px] md:text-[80px] tracking-[-2.4px] m-0 max-w-[1005px]">
+        {data.title}
+      </h1>
+
+      <!-- Description -->
+      <p class="font-medium leading-[32.5px] text-[rgba(35,35,35,0.7)] text-[18px] md:text-[20px] max-w-[1005px] mt-[32px] m-0">
+        {data.description}
+      </p>
+    </div>
+  </div>
+  
+  <!-- Hero image container -->
+  <div class="mx-auto w-full max-w-[1320px] px-6 xl:px-0 relative -mt-[140px] sm:-mt-[180px] z-20">
+    <div class="w-full h-[300px] sm:h-[400px] md:h-[578px] relative rounded-[20px] bg-[#e9e7e3] shadow-[0px_20px_40px_-15px_rgba(50,27,21,0.2)] overflow-hidden">
+      {data.image ? (
+        <img 
+          src={data.image} 
+          alt={data.title} 
+          class="w-full h-full object-cover" 
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" 
+        />
+        <div class="w-full h-full flex flex-col items-center justify-center bg-[rgba(35,35,35,0.05)] hidden">
+          <svg class="w-16 h-16 text-[rgba(35,35,35,0.2)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+        </div>
+      ) : (
+        <div class="w-full h-full flex flex-col items-center justify-center bg-[rgba(35,35,35,0.05)] text-[rgba(35,35,35,0.4)]">
+          <svg class="w-16 h-16 text-[rgba(35,35,35,0.2)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <span class="mt-4 font-medium">Hero Image (1320×578)</span>
+        </div>
+      )}
+    </div>
+  </div>
+</section>

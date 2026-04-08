@@ -1,0 +1,33 @@
+---
+import Base from "@/layouts/Base.astro";
+import Hero from "@/partials/Hero.astro";
+import Partners from "@/partials/Partners.astro";
+import ScaleFeatures from "@/partials/ScaleFeatures.astro";
+import SplitShowcase from "@/partials/SplitShowcase.astro";
+import PricingTable from "@/partials/PricingTable.astro";
+import Testimonial from "@/partials/Testimonial.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import CallToAction from "@/partials/CallToAction.astro";
+import { getEntry } from "astro:content";
+
+// Fetch the global data from the "homepage" collection
+const homepage = await getEntry("homepage", "-index");
+const { banner, trusted_by, scale_features, split_showcase, pricing, testimonials, faq, cta } = homepage.data;
+---
+
+<Base>
+  <div class="mx-auto w-[calc(100%-64px)] bg-[#ebe9e2] rounded-b-[24px]">
+    <Hero banner={banner} />
+    <Partners trusted_by={trusted_by} />
+  </div>
+  <div class="section-none">
+    <ScaleFeatures scale_features={scale_features} />
+  </div>
+  <SplitShowcase split_showcase={split_showcase} />
+  <div class="section-none">
+    <PricingTable pricing={pricing} />
+  </div>
+  <Testimonial testimonials={testimonials} showBackground={false} />
+  <FaqAccordion faq={faq} />
+  <CallToAction cta={cta} />
+</Base>

@@ -1,0 +1,46 @@
+---
+const { data } = Astro.props;
+---
+
+<section class="section">
+  <div class="mx-auto w-full max-w-[1320px] px-6 xl:px-0 flex flex-col items-center">
+    
+    <!-- Heading Container -->
+    <div class="flex flex-col gap-[24px] items-center text-center mb-[56px] max-w-[1005px]">
+      <h2 class="font-bold leading-[1.2] text-[#232323] text-[40px] md:text-[61px] tracking-[0.35px] m-0 font-primary">
+        {data.title}
+      </h2>
+      <p class="font-normal leading-[28px] text-[18px] md:text-[20px] text-[rgba(35,35,35,0.8)] tracking-[-0.45px] m-0 font-primary">
+        {data.description}
+      </p>
+    </div>
+
+    <!-- Benefits Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px] w-full">
+      {data.perks && data.perks.map((perk: any) => (
+        <div class="bg-[#f5f4f1] border border-[rgba(35,35,35,0.08)] min-h-[296px] rounded-[24px] shadow-[0px_10px_25px_0px_rgba(0,0,0,0.06),0px_4px_26px_0px_rgba(0,0,0,0.06)] p-[31px] flex flex-col items-start transition-all duration-300 hover:shadow-lg group">
+          
+          <!-- Icon Box -->
+          <div class="bg-[rgba(35,35,35,0.05)] border border-[rgba(35,35,35,0.1)] rounded-[8px] w-[48px] h-[48px] flex justify-center items-center mb-[32px] shrink-0 transition-colors group-hover:bg-[rgba(35,35,35,0.08)]">
+             <div class="w-[24px] h-[24px] text-[#232323]">
+               {/* Map icon string to SVG or generic placeholder */}
+               <svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+               </svg>
+             </div>
+          </div>
+          
+          <!-- Text Content -->
+          <h3 class="font-bold font-tertiary text-[20px] text-[#121926] leading-[32px] mb-[16px] m-0">
+            {perk.title}
+          </h3>
+          <p class="font-normal font-quaternary text-[16px] text-[#666666] leading-[26px] m-0">
+            {perk.description}
+          </p>
+          
+        </div>
+      ))}
+    </div>
+    
+  </div>
+</section>
