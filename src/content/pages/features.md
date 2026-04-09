@@ -3,6 +3,7 @@ title: "Features"
 meta_title: "Features - Astroplate"
 description: "A meticulously crafted architecture combining uncompromised aesthetics with world-class engineering."
 image: "/images/features.png"
+draft: false
 
 # Feature Hero
 hero:

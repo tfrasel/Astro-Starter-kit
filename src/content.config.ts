@@ -54,7 +54,7 @@ const pagesCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/pages" }),
   schema: z.object({
     ...commonFields,
-  }),
+  }).passthrough(),
 });
 
 // about collection schema
