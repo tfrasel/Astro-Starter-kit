@@ -1,0 +1,31 @@
+---
+const integrations = [
+  { name: "Acme Corp", icon: "acme" },
+  { name: "Vertex", icon: "vertex" },
+  { name: "Orbit", icon: "orbit" },
+  { name: "Orbit", icon: "orbit" },
+  { name: "Orbit", icon: "orbit" },
+  { name: "Blocks", icon: "blocks" },
+  { name: "Nexus", icon: "nexus" }
+];
+---
+
+<section class="section w-full flex justify-center">
+  <div class="w-full max-w-[1320px] px-6 xl:px-0 flex flex-col gap-[32px] items-center">
+    <p class="text-[14px] font-semibold text-[#232323]/80 tracking-[2.6496px] uppercase leading-[20px] border-b border-transparent">
+      Integrates seamlessly with
+    </p>
+    <div class="flex flex-wrap items-center justify-between w-full gap-8 md:gap-4">
+      {integrations.map((item) => (
+        <div class="flex items-center gap-2 grayscale hover:grayscale-0 transition-all cursor-pointer opacity-50 hover:opacity-100">
+          <div class="w-8 h-8 rounded-full bg-[#232323]/10 flex items-center justify-center">
+             <div class="w-4 h-4 bg-[#232323]/40 rounded-sm"></div>
+          </div>
+          <span class="text-[20px] font-bold text-[#232323]/50 tracking-[-0.4492px]">
+            {item.name}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

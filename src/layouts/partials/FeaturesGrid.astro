@@ -1,0 +1,54 @@
+---
+const features = [
+  {
+    title: "Sophisticated Theming",
+    description: "Pre-configured with a premium Ivory and Cocoa color palette. Easily customizable typography and spacing to match your brand's DNA.",
+    icon: "theme"
+  },
+  {
+    title: "Clean & Modular Code",
+    description: "Built with modern development standards. A developer-friendly structure that makes extending and maintaining your site a breeze.",
+    icon: "code"
+  },
+  {
+    title: "Search Engine Ready",
+    description: "Out-of-the-box SEO optimization, semantic HTML, and ARIA support to ensure your content is visible and accessible to everyone.",
+    icon: "seo"
+  }
+];
+---
+
+<section class="section w-full flex justify-center">
+  <div class="w-full max-w-[1320px] px-6 xl:px-0 flex flex-col items-center">
+    <div class="text-center mb-[64px]">
+      <h2 class="text-[48px] md:text-[61px] font-bold text-[#232323] tracking-[0.3516px] leading-[1.2] mb-6">
+        Designed for scale
+      </h2>
+      <p class="text-[20px] text-[#232323]/80 leading-[28px] tracking-[-0.4492px] max-w-[700px]">
+        Everything you need to launch a beautiful web application, meticulously crafted and packed into one layout.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+      {features.map((feature) => (
+        <div class="bg-[#f5f4f1] border border-[#232323]/20 rounded-[24px] p-[33px] flex flex-col gap-[160px] shadow-[0px_10px_25px_-3px_rgba(0,0,0,0.1),0px_4px_25px_-4px_rgba(0,0,0,0.1)]">
+          <div class="w-12 h-12 bg-[#232323]/5 border border-[#232323]/10 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-[#232323]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              {feature.icon === 'theme' && <path d="M12 2L2 7L12 12L22 7L12 2Z" />}
+              {feature.icon === 'code' && <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />}
+              {feature.icon === 'seo' && <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />}
+            </svg>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h3 class="text-[24px] font-bold text-[#232323] tracking-[0.0703px] leading-[32px]">
+              {feature.title}
+            </h3>
+            <p class="text-[16px] text-[#232323]/70 leading-[26px] tracking-[-0.3125px]">
+              {feature.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

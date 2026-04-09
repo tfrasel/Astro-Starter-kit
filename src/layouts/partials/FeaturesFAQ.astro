@@ -1,0 +1,48 @@
+---
+const faqs = [
+  {
+    question: "Is this template actually free?",
+    answer: "Yes, it's completely free for personal and commercial use under the MIT license."
+  },
+  {
+    question: "Can I use it with Next.js or Vite?",
+    answer: "Absolutely! While this starter is built with Astro, the concepts and design system are framework-agnostic."
+  },
+  {
+    question: "How do I change the Ivory and Cocoa colors?",
+    answer: "You can easily update the theme tokens in the CSS variables file or Tailwind config."
+  },
+  {
+    question: "Does it score 100/100 on Lighthouse?",
+    answer: "We strive for perfection. Out of the box, it scores exceptionally well due to Astro's zero-JS approach."
+  }
+];
+---
+
+<section class="section w-full flex justify-center">
+  <div class="w-full max-w-[872px] px-6 flex flex-col gap-[64px] items-center">
+    <div class="text-center flex flex-col gap-4">
+      <h2 class="text-[48px] md:text-[61px] font-bold text-[#232323] tracking-[0.3691px] leading-[1.4]">
+        Frequently asked questions
+      </h2>
+      <p class="text-[18px] text-[#232323]/60 leading-[28px] tracking-[-0.4395px]">
+        Got questions? We've got answers.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-4 w-full">
+      {faqs.map((faq) => (
+        <div class="bg-[#f5f4f1] border border-[#232323]/10 rounded-[16px] p-6 shadow-[0px_1px_20px_0px_rgba(0,0,0,0.1)] flex justify-between items-center group cursor-pointer hover:border-[#232323]/20 transition-all">
+          <p class="text-[20px] font-bold text-[#232323] leading-[28px] tracking-[-0.4492px]">
+            {faq.question}
+          </p>
+          <div class="w-8 h-8 bg-[#232323]/5 border border-[#232323]/10 rounded-full flex items-center justify-center group-hover:bg-[#232323]/10 transition-colors">
+            <svg class="w-5 h-5 text-[#232323]/40 group-hover:text-[#232323]/60 transition-colors" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+               <path d="M5 10h10M10 5l5 5-5 5"></path>
+            </svg>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

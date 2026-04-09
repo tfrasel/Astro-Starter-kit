@@ -22,6 +22,10 @@
           "url": "/"
         },
         {
+          "name": "Features",
+          "url": "/features"
+        },
+        {
           "name": "Contact",
           "url": "/contact"
         },

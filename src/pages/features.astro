@@ -1,0 +1,42 @@
+---
+import Base from "@/layouts/Base.astro";
+import FeaturesHero from "@/layouts/partials/FeaturesHero.astro";
+import FeaturesGrid from "@/layouts/partials/FeaturesGrid.astro";
+import FeaturesShowcase from "@/layouts/partials/FeaturesShowcase.astro";
+import FeaturesIntegrations from "@/layouts/partials/FeaturesIntegrations.astro";
+import FeaturesFAQ from "@/layouts/partials/FeaturesFAQ.astro";
+import CallToAction from "@/layouts/partials/CallToAction.astro";
+
+const title = "Features";
+const meta_title = "Features - Starter Kit";
+const description = "Everything you need to launch a beautiful web application, meticulously crafted and packed into one layout.";
+
+const heroData = {
+  subtitle: "Starter Template v2.0",
+  title: "Designed for speed\nBuilt for scale",
+  description: "A meticulously crafted architecture combining uncompromised aesthetics with world-class engineering. Drop it in, customize the tokens, and launch."
+};
+
+const ctaData = {
+  title: "Stop building from scratch",
+  description: "Join thousands of developers building faster, leaner, and more beautiful applications today.",
+  button: {
+    enable: true,
+    label: "Download the Starter Kit",
+    link: "/contact"
+  }
+};
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+>
+  <FeaturesHero {...heroData} />
+  <FeaturesGrid />
+  <FeaturesShowcase />
+  <FeaturesIntegrations />
+  <FeaturesFAQ />
+  <CallToAction cta={ctaData} />
+</Base>
