@@ -12,7 +12,10 @@ import { getEntry } from "astro:content";
 
 // Fetch the global data from the "homepage" collection
 const homepage = await getEntry("homepage", "-index");
-const { banner, trusted_by, scale_features, split_showcase, pricing, testimonials, faq, cta } = homepage.data;
+const pricingPage = await getEntry("pages", "pricing");
+
+const { banner, trusted_by, scale_features, split_showcase, testimonials, faq, cta } = homepage.data;
+const pricing = pricingPage?.data?.pricing;
 ---
 
 <Base>

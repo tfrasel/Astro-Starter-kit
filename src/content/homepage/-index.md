@@ -63,40 +63,6 @@ split_showcase:
       link: "#"
     image_align: "left"
 
-# Pricing
-pricing:
-  title: "Simple, transparent pricing for creators"
-  description: "Choose the plan that fits your project scale. No hidden fees, just premium design."
-  plans:
-    - name: "Starter"
-      subtitle: "For individual website owners"
-      price: "49"
-      monthly: true
-      features:
-        - "1 Site License"
-        - "Standard UI Kit"
-        - "Lifetime Updates"
-      popular: false
-    - name: "Professional"
-      subtitle: "Freelancers & Small Agencies."
-      price: "129"
-      monthly: true
-      features:
-        - "5 Site Licenses"
-        - "Full Design System"
-        - "Priority Support"
-        - "SEO Tools"
-      popular: true
-    - name: "Enterprise"
-      subtitle: "Teams & Large Scale SaaS."
-      price: "249"
-      monthly: true
-      features:
-        - "Unlimited Licenses"
-        - "Custom Branding"
-        - "Dedicated Slack Channel"
-      popular: false
-
 # Testimonials
 testimonials:
   title: "From idea to deployment"

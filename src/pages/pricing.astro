@@ -1,0 +1,83 @@
+---
+import { getEntry } from "astro:content";
+import Base from "@/layouts/Base.astro";
+import PricingHero from "@/layouts/partials/PricingHero.astro";
+import PricingTable from "@/layouts/partials/PricingTable.astro";
+import Faq from "@/layouts/partials/Faq.astro";
+import Testimonial from "@/layouts/partials/Testimonial.astro";
+import CallToAction from "@/layouts/partials/CallToAction.astro";
+
+const pricingPage = await getEntry("pages", "pricing");
+
+if (!pricingPage) {
+  return Astro.redirect("/404");
+}
+
+const {
+  title,
+  meta_title,
+  description,
+  hero,
+  pricing,
+  faq,
+} = pricingPage.data;
+
+console.log("PRICING PAGE DATA KEYS:", Object.keys(pricingPage.data));
+console.log("PRICING OBJECT TYPE:", typeof pricing);
+
+// Testimonials data - in a real app, this would come from a collection or the page data
+const testimonialData = {
+  title: "Trusted by top founders",
+  description: "Join thousands of builders who rely on our design system every day.",
+  reviews: [
+    {
+      name: "Alex Rivera",
+      role: "Frontend Engineer",
+      content: "This starter template completely changed my workflow. I saved weeks of setup time, and the design system is a masterpiece of minimalism.",
+      avatar: "https://i.pravatar.cc/150?u=alex"
+    },
+    {
+      name: "Marcus Chen",
+      role: "Product Designer",
+      content: "The level of detail in the components is unmatched. It's not just a UI kit; it's a complete engineering foundation.",
+      avatar: "https://i.pravatar.cc/150?u=marcus"
+    },
+    {
+      name: "Sarah Jenkins",
+      role: "SaaS Founder",
+      content: "We launched our MVP in record time. The zero-JS approach makes our landing pages feel incredibly snappy.",
+      avatar: "https://i.pravatar.cc/150?u=sarah"
+    }
+  ]
+};
+
+const ctaData = {
+  title: "Stop building from scratch",
+  description: "Join thousands of developers building faster, leaner, and more beautiful applications today.",
+  button: {
+    enable: true,
+    label: "Download the Starter Kit",
+    link: "/contact"
+  }
+};
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+>
+  <PricingHero
+    subtitle={hero.subtitle}
+    title={hero.title}
+    description={hero.description}
+  />
+  
+  <PricingTable pricing={pricing} />
+
+  <Testimonial testimonials={testimonialData} />
+  
+  <Faq faq={faq} />
+
+  <CallToAction cta={ctaData} />
+</Base>
