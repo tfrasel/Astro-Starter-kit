@@ -3,9 +3,9 @@ const { title, subtitle, description } = Astro.props;
 ---
 
 <!-- Features Hero Section -->
-<section class="section w-full flex justify-center">
+<section class="relative w-full flex justify-center z-10">
   <!-- Beige rounded-bottom band -->
-  <div class="mx-auto w-[calc(100%-64px)] bg-[#ebe9e2] rounded-b-[16px] pt-[228px] pb-[140px] relative top-0 flex flex-col items-center">
+  <div class="mx-auto w-[calc(100%-64px)] bg-[#ebe9e2] rounded-b-[16px] pt-[228px] pb-[140px] relative top-0 flex flex-col items-center min-h-[709px]">
     <div class="w-full max-w-[1320px] text-center px-6 xl:px-0 relative z-20 flex flex-col items-center">
       
       <!-- Badge pill -->
@@ -17,8 +17,7 @@ const { title, subtitle, description } = Astro.props;
       )}
 
       <!-- Title -->
-      <h1 class="font-bold leading-[1.2] text-[#232323] text-[48px] md:text-[80px] tracking-[-2.4px] m-0 max-w-[1005px] font-primary whitespace-pre-line">
-        {title}
+      <h1 class="font-bold leading-[1.2] text-[#232323] text-[48px] md:text-[80px] tracking-[-2.4px] m-0 max-w-[1005px] font-primary whitespace-pre-line" set:html={title}>
       </h1>
 
       <!-- Description -->
